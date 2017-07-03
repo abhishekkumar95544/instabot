@@ -16,6 +16,7 @@ def self_info():
 # use info
     if user_info['meta']['code'] == 200:
         if len(user_info['data']):
+#printimg the user names and details
             print 'Username: %s' % (user_info['data']['username'])
             print 'No. of followers: %s' % (user_info['data']['counts']['followed_by'])
             print 'No. of people you are following: %s' % (user_info['data']['counts']['follows'])
