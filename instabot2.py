@@ -26,6 +26,7 @@ def self_info():
             #else user doesnot exist
             print 'User does not exist!'
     else:
+        #printing the status of code
         print 'Status code other than 200 received!'
 
 
