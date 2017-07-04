@@ -96,6 +96,7 @@ def start_bot():
         if choice=="a":
             self_info()
         elif choice=="b":
+            #insta username of raw input
             insta_username = raw_input("Enter the username of the user: ")
             get_user_info(insta_username)
         #elif choice=="c":
