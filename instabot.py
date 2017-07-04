@@ -29,9 +29,10 @@ def self_info():
 '''
 Function declaration to get the ID of a user by username
 '''
-# user id 
+# user id
 def get_user_id(insta_username):
     request_url = (BASE_URL + 'users/search?q=%s&access_token=%s') % (insta_username, APP_ACCESS_TOKEN)
+    #print the get request
     print 'GET request url : %s' % (request_url)
     user_info = requests.get(request_url).json()
 
