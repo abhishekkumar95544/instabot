@@ -124,7 +124,7 @@ def get_user_post(insta_username):
     else:
         print 'Status code other than 200 received!'
 
-
+#start bot
 def start_bot():
     while True:
         print '\n'
