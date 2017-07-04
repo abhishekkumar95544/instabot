@@ -122,6 +122,7 @@ def start_bot():
         elif choice=="j":
             exit()
         else:
+            #printing the wrong choice
             print "wrong choice"
 
 start_bot()
