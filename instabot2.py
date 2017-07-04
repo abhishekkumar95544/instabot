@@ -71,6 +71,7 @@ def get_user_info(insta_username):
             print 'No. of people you are following: %s' % (user_info['data']['counts']['follows'])
             print 'No. of posts: %s' % (user_info['data']['counts']['media'])
         else:
+            #if yes then print the data for user
             print 'There is no data for this user!'
     else:
         print 'Status code other than 200 received!'
