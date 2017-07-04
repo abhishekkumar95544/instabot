@@ -70,9 +70,10 @@ def get_user_info(insta_username):
             print 'No. of people you are following: %s' % (user_info['data']['counts']['follows'])
             print 'No. of posts: %s' % (user_info['data']['counts']['media'])
         else:
- #printing it 
+ #printing it
             print 'There is no data for this user!'
     else:
+        #printing the status code
         print 'Status code other than 200 received!'
 
 def start_bot():
