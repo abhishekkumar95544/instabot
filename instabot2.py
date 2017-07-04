@@ -1,6 +1,6 @@
 import requests, urllib
 
-APP_ACCESS_TOKEN = '5629236876.1cc9688.86db895c038043b5960dc2949785299a'
+APP_ACCESS_TOKEN = '2170149923.5a5863d.94363ab14ad940019bfbc7a0cb8cfa3b'
 #Token Owner : AVinstaBot.main
 #Sandbox Users : AVinstaBot.test0, AVinstaBot.test1, AVinstaBot.test2...... AVinstaBot.test10
 
@@ -55,10 +55,10 @@ Function declaration to get the info of a user by username
 '''
 
 
-def get_user_info(insta_username):
-    user_id = get_user_id(insta_username)
-    if user_id == None:
-        print 'User does not exist!'
+def get_user_info(vivekkumar3075):
+    user_id = get_user_id(vivekkumar3075)
+    if user_id == 1:
+        print 'User  exist!'
         exit()
     request_url = (BASE_URL + 'users/%s?access_token=%s') % (user_id, APP_ACCESS_TOKEN)
     print 'GET request url : %s' % (request_url)
