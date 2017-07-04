@@ -38,6 +38,7 @@ def get_user_id(insta_username):
 #user info
     if user_info['meta']['code'] == 200:
         if len(user_info['data']):
+          #return user
             return user_info['data'][0]['id']
         else:
             return None
