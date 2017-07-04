@@ -55,6 +55,7 @@ def get_user_info(insta_username):
   #user _id insta username
     user_id = get_user_id(insta_username)
     if user_id == None:
+   #printuser does not exist
         print 'User does not exist!'
         exit()
     request_url = (BASE_URL + 'users/%s?access_token=%s') % (user_id, APP_ACCESS_TOKEN)
