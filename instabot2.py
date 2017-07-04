@@ -74,6 +74,7 @@ def get_user_info(insta_username):
             #if yes then print the data for user
             print 'There is no data for this user!'
     else:
+        #printing the status of code
         print 'Status code other than 200 received!'
 
 
