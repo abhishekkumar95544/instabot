@@ -52,6 +52,7 @@ Function declaration to get the info of a user by username
 '''
 
 def get_user_info(insta_username):
+  #user _id insta username
     user_id = get_user_id(insta_username)
     if user_id == None:
         print 'User does not exist!'
