@@ -23,6 +23,7 @@ def self_info():
             print 'No. of people you are following: %s' % (user_info['data']['counts']['follows'])
             print 'No. of posts: %s' % (user_info['data']['counts']['media'])
         else:
+            #else user doesnot exist
             print 'User does not exist!'
     else:
         print 'Status code other than 200 received!'
