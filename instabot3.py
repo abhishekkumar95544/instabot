@@ -28,6 +28,7 @@ def self_info():
             print 'No. of followers: %s' % (user_info['data']['counts']['followed_by'])
            #print the no of people you are following
             print 'No. of people you are following: %s' % (user_info['data']['counts']['follows'])
+            #print no of posts
             print 'No. of posts: %s' % (user_info['data']['counts']['media'])
         else:
             print 'User does not exist!'
