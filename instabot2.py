@@ -63,6 +63,7 @@ def get_user_info(vivekkumar3075):
         exit()
         #requesting the url
     request_url = (BASE_URL + 'users/%s?access_token=%s') % (user_id, APP_ACCESS_TOKEN)
+#printing the get request
     print 'GET request url : %s' % (request_url)
     user_info = requests.get(request_url).json()
 #user whole details
