@@ -141,6 +141,7 @@ def get_user_post(insta_username):
             #print the post does not exist
             print 'Post does not exist!'
     else:
+        #print staus code other than 200 received
         print 'Status code other than 200 received!'
 
 #start bot
