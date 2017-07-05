@@ -75,6 +75,7 @@ def get_user_info(vivekkumar3075):
              print 'No. of followers: %s' % (user_info['data']['counts']['followed_by'])
              #printing number of people
              print 'No. of people you are following: %s' % (user_info['data']['counts']['follows'])
+            #printing number of post
             print 'No. of posts: %s' % (user_info['data']['counts']['media'])
         else:
             #if yes then print the data for user
