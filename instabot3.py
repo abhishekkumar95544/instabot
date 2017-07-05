@@ -24,8 +24,9 @@ def self_info():
         if len(user_info['data']):
           #print the user name
             print 'Username: %s' % (user_info['data']['username'])
-            #print the noof followers
+            #print the no of followers
             print 'No. of followers: %s' % (user_info['data']['counts']['followed_by'])
+           #print the no of people you are following
             print 'No. of people you are following: %s' % (user_info['data']['counts']['follows'])
             print 'No. of posts: %s' % (user_info['data']['counts']['media'])
         else:
