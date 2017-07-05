@@ -49,6 +49,7 @@ def get_user_id(insta_username):
     user_info = requests.get(request_url).json()
 
     if user_info['meta']['code'] == 200:
+ #len user info
         if len(user_info['data']):
             return user_info['data'][0]['id']
         else:
