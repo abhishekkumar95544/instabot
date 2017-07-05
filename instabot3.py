@@ -34,6 +34,7 @@ def self_info():
             #else print user does not exist
             print 'User does not exist!'
     else:
+#print the status codeeother than 200 received
         print 'Status code other than 200 received!'
 
 
