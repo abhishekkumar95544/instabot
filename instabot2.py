@@ -103,6 +103,7 @@ def get_own_post():
             #image url
             image_url = own_media['data'][0]['images']['standard_resolution']['url']
             urllib.urlretrieve(image_url, image_name)
+            #printing your image has been download
             print 'Your image has been downloaded!'
         else:
             #printing the post
