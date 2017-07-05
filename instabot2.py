@@ -119,6 +119,7 @@ Function declaration to get the recent post of a user by username
 
 
 def get_user_post(insta_username):
+    #detailing of the user id
     user_id = get_user_id(insta_username)
     if user_id == None:
         print 'User does not exist!'
