@@ -136,6 +136,7 @@ def get_user_post(insta_username):
             urllib.urlretrieve(image_url, image_name)
             print 'Your image has been downloaded!'
         else:
+         #print post does not exist
             print 'Post does not exist!'
     else:
         print 'Status code other than 200 received!'
