@@ -16,6 +16,7 @@ Function declaration to get your own info
 def self_info():
   #requesting the base url
     request_url = (BASE_URL + 'users/self/?access_token=%s') % (APP_ACCESS_TOKEN)
+    #printing the get request
     print 'GET request url : %s' % (request_url)
     user_info = requests.get(request_url).json()
 
