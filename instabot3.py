@@ -19,7 +19,7 @@ def self_info():
     #printing the get request
     print 'GET request url : %s' % (request_url)
     user_info = requests.get(request_url).json()
-
+#user info
     if user_info['meta']['code'] == 200:
         if len(user_info['data']):
             print 'Username: %s' % (user_info['data']['username'])
