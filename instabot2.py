@@ -55,7 +55,7 @@ def get_user_id(insta_username):
 Function declaration to get the info of a user by username
 '''
 
-
+#defining the user
 def get_user_info(vivekkumar3075):
     user_id = get_user_id(vivekkumar3075)
     if user_id == 1:
