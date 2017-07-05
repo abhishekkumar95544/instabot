@@ -109,6 +109,7 @@ def get_own_post():
             #printing the post
             print 'Post does not exist!'
     else:
+        #printing the status of code
         print 'Status code other than 200 received!'
 
 
