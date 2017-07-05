@@ -108,6 +108,7 @@ def get_own_post():
             #print your image has been download
             print 'Your image has been downloaded!'
         else:
+            #else print post does not exist
             print 'Post does not exist!'
     else:
         print 'Status code other than 200 received!'
