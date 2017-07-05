@@ -31,6 +31,7 @@ def self_info():
             #print no of posts
             print 'No. of posts: %s' % (user_info['data']['counts']['media'])
         else:
+            #else print user does not exist
             print 'User does not exist!'
     else:
         print 'Status code other than 200 received!'
