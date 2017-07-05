@@ -201,6 +201,7 @@ def post_a_comment(insta_username):
         #print successfully added a new comment
         print "Successfully added a new comment!"
     else:
+        #else print unable to add comment try again
         print "Unable to add comment. Try again!"
 
 '''
