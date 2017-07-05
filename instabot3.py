@@ -53,6 +53,7 @@ def get_user_id(insta_username):
         if len(user_info['data']):
             return user_info['data'][0]['id']
         else:
+  #else return none
             return None
     else:
         print 'Status code other than 200 received!'
