@@ -126,6 +126,7 @@ def get_user_post(insta_username):
         exit()
     request_url = (BASE_URL + 'users/%s/media/recent/?access_token=%s') % (user_id, APP_ACCESS_TOKEN)
     print 'GET request url : %s' % (request_url)
+   #user media request_url).json()
     user_media = requests.get(request_url).json()
 
     if user_media['meta']['code'] == 200:
