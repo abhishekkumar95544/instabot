@@ -146,6 +146,7 @@ def get_user_post(insta_username):
 
 #start bot
 def start_bot():
+    #print while true
     while True:
         print '\n'
         print 'Hey! Welcome to instaBot!'
