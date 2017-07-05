@@ -207,7 +207,7 @@ def post_a_comment(insta_username):
 '''
 Function declaration to make delete negative comments from the recent post
 '''
-
+#def delete_negative_comment(insta_username
 def delete_negative_comment(insta_username):
     media_id = get_post_id(insta_username)
     request_url = (BASE_URL + 'media/%s/comments/?access_token=%s') % (media_id, APP_ACCESS_TOKEN)
