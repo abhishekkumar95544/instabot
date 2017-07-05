@@ -69,6 +69,7 @@ def get_user_info(vivekkumar3075):
 #user whole details
     if user_info['meta']['code'] == 200:
         if len(user_info['data']):
+          #printing the user name
             print 'Username: %s' % (user_info['data']['username'])
             print 'No. of followers: %s' % (user_info['data']['counts']['followed_by'])
             print 'No. of people you are following: %s' % (user_info['data']['counts']['follows'])
