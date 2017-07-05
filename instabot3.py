@@ -198,6 +198,7 @@ def post_a_comment(insta_username):
     make_comment = requests.post(request_url, payload).json()
 
     if make_comment['meta']['code'] == 200:
+        #print successfully added a new comment
         print "Successfully added a new comment!"
     else:
         print "Unable to add comment. Try again!"
