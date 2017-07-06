@@ -182,6 +182,17 @@ def like_a_post(insta_username):
     else:
         print 'Your like was unsuccessful. Try again!'
 
+def liked_by_user(insta_username):
+    media_id = get_post_id(insta_username)
+    request_url = (BASE_URL + 'media/%s/likes?access_token=%s') % (media_id,APP_ACCESS_TOKEN)
+    payload = {"access_token": APP_ACCESS_TOKEN}
+    print 'POST request url : %s' % (request_url)
+    post_a_like = requests.post(request_url,payload).json()
+    if post_a_like['meta']['code'] ==  200:
+        print  'users who have liked your photo'
+    else:
+        print 'like was unsuccessful. Try again'
+
 
 '''
 Function declaration to make a comment on the recent post of the user
@@ -268,7 +279,7 @@ def start_bot():
             get_user_post(insta_username)
         elif choice=="e":
            insta_username = raw_input("Enter the username of the user: ")
-           get_like_list(insta_username)
+           liked_by_user(insta_username)
         elif choice=="f":
            insta_username = raw_input("Enter the username of the user: ")
            like_a_post(insta_username)
