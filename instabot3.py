@@ -9,7 +9,9 @@ APP_ACCESS_TOKEN = '2170149923.5a5863d.94363ab14ad940019bfbc7a0cb8cfa3b'
 BASE_URL = 'https://api.instagram.com/v1/'
 
 
-# Function declaration to get your own info
+'''
+Function declaration to get your own info
+'''
 
 
 #defining the self info
@@ -31,7 +33,9 @@ def self_info():
 
 
 
-# Function declaration to get the ID of a user by username
+'''
+Function declaration to get the ID of a user by username
+'''
 
 
 
@@ -51,7 +55,9 @@ def get_user_id(abhishekkumar11):
 
 
 
-# Function declaration to get the info of a user by username
+'''
+Function declaration to get the info of a user by username
+'''
 
 
 
@@ -77,7 +83,9 @@ def get_user_info(abhishekkumar11):
 
 
 
-# Function declaration to get your recent post
+'''
+Function declaration to get your recent post
+'''
 
 
 
@@ -99,7 +107,9 @@ def get_own_post():
 
 
 
-# Function declaration to get the recent post of a user by username
+'''
+Function declaration to get the recent post of a user by username
+'''
 
 
 
@@ -124,7 +134,9 @@ def get_user_post(abhishekkumar11):
         print 'Status code other than 200 received!'
 
 
-# Function declaration to get the ID of the recent post of a user by username
+'''
+Function declaration to get the ID of the recent post of a user by username
+'''
 
 
 def get_post_id(abhishekkumar11):
@@ -149,7 +161,9 @@ def get_post_id(abhishekkumar11):
 
 
 
-# Function declaration to like the recent post of a user
+'''
+Function declaration to like the recent post of a user
+'''
 
 
 
@@ -166,7 +180,9 @@ def like_a_post(abhishekkumar11):
 
 
 
-# Function declaration to make a comment on the recent post of the user
+'''
+Function declaration to make a comment on the recent post of the user
+'''
 
 
 def post_a_comment(abhishekkumar11):
@@ -201,7 +217,9 @@ def get_the_comments(abhishekkumar11):
     comments = requests.get((BASE_URL + "media/%s/comments?access_token=%s") % (media_id, APP_ACCESS_TOKEN)).json()
     print comments["data"]
 
-# Function declaration to make delete negative comments from the recent post
+'''
+Function declaration to make delete negative comments from the recent post
+'''
 
 def delete_negative_comment(abhishekkumar11):
     media_id = get_post_id(abhishekkumar11)
