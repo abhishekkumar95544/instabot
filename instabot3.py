@@ -8,73 +8,60 @@ APP_ACCESS_TOKEN = '2170149923.5a5863d.94363ab14ad940019bfbc7a0cb8cfa3b'
 
 BASE_URL = 'https://api.instagram.com/v1/'
 
-'''
-Function declaration to get your own info
-'''
 
-#defing the self info
+# Function declaration to get your own info
+
+
+
 def self_info():
-  #requesting the base url
     request_url = (BASE_URL + 'users/self/?access_token=%s') % (APP_ACCESS_TOKEN)
-    #printing the get request
     print 'GET request url : %s' % (request_url)
     user_info = requests.get(request_url).json()
-#user info
+
     if user_info['meta']['code'] == 200:
         if len(user_info['data']):
-          #print the user name
             print 'Username: %s' % (user_info['data']['username'])
-            #print the no of followers
             print 'No. of followers: %s' % (user_info['data']['counts']['followed_by'])
-           #print the no of people you are following
             print 'No. of people you are following: %s' % (user_info['data']['counts']['follows'])
-            #print no of posts
             print 'No. of posts: %s' % (user_info['data']['counts']['media'])
         else:
-            #else print user does not exist
             print 'User does not exist!'
     else:
-#print the status codeeother than 200 received
         print 'Status code other than 200 received!'
 
 
-'''
-Function declaration to get the ID of a user by username
-'''
+
+# Function declaration to get the ID of a user by username
 
 
-def get_user_id(insta_username):
-    request_url = (BASE_URL + 'users/search?q=%s&access_token=%s') % (insta_username, APP_ACCESS_TOKEN)
+
+def get_user_id(abhishekkumar11):
+    request_url = (BASE_URL + 'users/search?q=%s&access_token=%s') % (abhishekkumar11, APP_ACCESS_TOKEN)
     print 'GET request url : %s' % (request_url)
     user_info = requests.get(request_url).json()
 
     if user_info['meta']['code'] == 200:
- #len user info
         if len(user_info['data']):
             return user_info['data'][0]['id']
         else:
-  #else return none
             return None
     else:
         print 'Status code other than 200 received!'
         exit()
 
 
-'''
-Function declaration to get the info of a user by username
-'''
 
-#user info insta username
-def get_user_info(insta_username):
-    user_id = get_user_id(insta_username)
+# Function declaration to get the info of a user by username
+
+
+
+def get_user_info(abhishekkumar11):
+    user_id = get_user_id(abhishekkumar11)
     if user_id == None:
         print 'User does not exist!'
         exit()
-   #requesting base url+access token
     request_url = (BASE_URL + 'users/%s?access_token=%s') % (user_id, APP_ACCESS_TOKEN)
-    #printing the get request
     print 'GET request url : %s' % (request_url)
-   #user info requests
     user_info = requests.get(request_url).json()
 
     if user_info['meta']['code'] == 200:
@@ -89,13 +76,12 @@ def get_user_info(insta_username):
         print 'Status code other than 200 received!'
 
 
-'''
-Function declaration to get your recent post
-'''
+
+# Function declaration to get your recent post
+
 
 
 def get_own_post():
-    #print APP_ACCESS_TOKEN
     request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s') % (APP_ACCESS_TOKEN)
     print 'GET request url : %s' % (request_url)
     own_media = requests.get(request_url).json()
@@ -105,28 +91,25 @@ def get_own_post():
             image_name = own_media['data'][0]['id'] + '.jpeg'
             image_url = own_media['data'][0]['images']['standard_resolution']['url']
             urllib.urlretrieve(image_url, image_name)
-            #print your image has been download
             print 'Your image has been downloaded!'
         else:
-            #else print post does not exist
             print 'Post does not exist!'
     else:
         print 'Status code other than 200 received!'
 
 
-'''
-Function declaration to get the recent post of a user by username
-'''
+
+# Function declaration to get the recent post of a user by username
 
 
-def get_user_post(insta_username):
-    user_id = get_user_id(insta_username)
+
+def get_user_post(abhishekkumar11):
+    user_id = get_user_id(abhishekkumar11)
     if user_id == None:
         print 'User does not exist!'
         exit()
     request_url = (BASE_URL + 'users/%s/media/recent/?access_token=%s') % (user_id, APP_ACCESS_TOKEN)
     print 'GET request url : %s' % (request_url)
-   #user media request_url).json()
     user_media = requests.get(request_url).json()
 
     if user_media['meta']['code'] == 200:
@@ -136,17 +119,16 @@ def get_user_post(insta_username):
             urllib.urlretrieve(image_url, image_name)
             print 'Your image has been downloaded!'
         else:
-         #print post does not exist
             print 'Post does not exist!'
     else:
         print 'Status code other than 200 received!'
 
-'''
-Function declaration to get the ID of the recent post of a user by username
-'''
 
-def get_post_id(insta_username):
-    user_id = get_user_id(insta_username)
+# Function declaration to get the ID of the recent post of a user by username
+
+
+def get_post_id(abhishekkumar11):
+    user_id = get_user_id(abhishekkumar11)
     if user_id == None:
         print 'User does not exist!'
         exit()
@@ -166,13 +148,13 @@ def get_post_id(insta_username):
 
 
 
-'''
-Function declaration to like the recent post of a user
-'''
+
+# Function declaration to like the recent post of a user
 
 
-def like_a_post(insta_username):
-    media_id = get_post_id(insta_username)
+
+def like_a_post(abhishekkumar11):
+    media_id = get_post_id(abhishekkumar11)
     request_url = (BASE_URL + 'media/%s/likes') % (media_id)
     payload = {"access_token": APP_ACCESS_TOKEN}
     print 'POST request url : %s' % (request_url)
@@ -182,25 +164,13 @@ def like_a_post(insta_username):
     else:
         print 'Your like was unsuccessful. Try again!'
 
-def liked_by_user(insta_username):
-    media_id = get_post_id(insta_username)
-    request_url = (BASE_URL + 'media/%s/likes?access_token=%s') % (media_id,APP_ACCESS_TOKEN)
-    payload = {"access_token": APP_ACCESS_TOKEN}
-    print 'POST request url : %s' % (request_url)
-    post_a_like = requests.post(request_url,payload).json()
-    if post_a_like['meta']['code'] ==  200:
-        print  'users who have liked your photo'
-    else:
-        print 'like was unsuccessful. Try again'
 
 
-'''
-Function declaration to make a comment on the recent post of the user
-'''
+# Function declaration to make a comment on the recent post of the user
 
 
-def post_a_comment(insta_username):
-    media_id = get_post_id(insta_username)
+def post_a_comment(abhishekkumar11):
+    media_id = get_post_id(abhishekkumar11)
     comment_text = raw_input("Your comment: ")
     payload = {"access_token": APP_ACCESS_TOKEN, "text" : comment_text}
     request_url = (BASE_URL + 'media/%s/comments') % (media_id)
@@ -209,18 +179,32 @@ def post_a_comment(insta_username):
     make_comment = requests.post(request_url, payload).json()
 
     if make_comment['meta']['code'] == 200:
-        #print successfully added a new comment
         print "Successfully added a new comment!"
     else:
-        #else print unable to add comment try again
         print "Unable to add comment. Try again!"
 
-'''
-Function declaration to make delete negative comments from the recent post
-'''
-#def delete_negative_comment(insta_username
-def delete_negative_comment(insta_username):
-    media_id = get_post_id(insta_username)
+
+# Function declaration to get the liked by user
+
+
+def liked_by_user(abhishekkumar11):
+    media_id = get_post_id(abhishekkumar11)
+    print "Get request URL:" + ((BASE_URL + "users/self/media/liked?access_token=%s") % (APP_ACCESS_TOKEN))
+    liked = requests.get((BASE_URL + "users/self/media/liked?access_token=%s") % (APP_ACCESS_TOKEN)).json()
+    print liked["data"][0]["id"]
+
+# Function declaration to get the comments
+
+def get_the_comments(abhishekkumar11):
+    media_id = get_post_id(abhishekkumar11)
+    print "Get request URL:" + ((BASE_URL + "media/%s/comments?access_token=%s") % (media_id, APP_ACCESS_TOKEN))
+    comments = requests.get((BASE_URL + "media/%s/comments?access_token=%s") % (media_id, APP_ACCESS_TOKEN)).json()
+    print comments["data"]
+
+# Function declaration to make delete negative comments from the recent post
+
+def delete_negative_comment(abhishekkumar11):
+    media_id = get_post_id(abhishekkumar11)
     request_url = (BASE_URL + 'media/%s/comments/?access_token=%s') % (media_id, APP_ACCESS_TOKEN)
     print 'GET request url : %s' % (request_url)
     comment_info = requests.get(request_url).json()
@@ -285,7 +269,7 @@ def start_bot():
            like_a_post(insta_username)
         elif choice=="g":
            insta_username = raw_input("Enter the username of the user: ")
-           get_comment_list(insta_username)
+           get_the_comments(insta_username)
         elif choice=="h":
            insta_username = raw_input("Enter the username of the user: ")
            post_a_comment(insta_username)
