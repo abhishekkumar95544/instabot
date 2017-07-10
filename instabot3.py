@@ -300,3 +300,5 @@ def start_bot():
             print "wrong choice"
 
 start_bot()
+import matplotlib.pyplot as plt
+
