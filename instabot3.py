@@ -12,7 +12,7 @@ Positive_sentiments = 0
 Negative_sentiments = 0
 Neutral_sentiments = 0
 
-
+#defing the self info
 def self_info():
     request_url=(BASE_URL + "users/self/?access_token=%s") % (APP_ACCESS_TOKEN)
     print 'GET request url:%s' % (request_url)
