@@ -124,7 +124,7 @@ def get_post_id(insta_username):
         exit()
 
 
-
+#defing like a post 
 def like_a_post(insta_username):
     media_id = get_post_id(insta_username)
     request_url = (BASE_URL + 'media/%s/likes') % (media_id)
