@@ -65,7 +65,7 @@ def get_user_info(insta_username):
         print 'Status code other than 200 received!'
 
 
-
+#defing get own post
 def get_own_post():
     request_url = (BASE_URL + 'users/self/media/recent/?access_token=%s') % (APP_ACCESS_TOKEN)
     print 'GET request url : %s' % (request_url)
