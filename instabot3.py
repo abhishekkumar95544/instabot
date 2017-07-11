@@ -82,7 +82,7 @@ def get_own_post():
         print 'Status code other than 200 received!'
 
 
-
+#defing the user post
 def get_user_post(insta_username):
     user_id = get_user_id(insta_username)
     if user_id == None:
