@@ -168,7 +168,7 @@ def get_the_comments(insta_username):
 
 
 
-
+#defing pie chart
 def pie_chart():
     insta_username = raw_input("Enter the username: \n")
     give_comments = get_the_comments(insta_username)
