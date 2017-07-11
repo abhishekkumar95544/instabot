@@ -1,6 +1,7 @@
 import requests, urllib
 from textblob import TextBlob
 from textblob.sentiments import NaiveBayesAnalyzer
+from paralleldots import set_api_key, get_api_key, sentiment
 
 APP_ACCESS_TOKEN = '2170149923.5a5863d.94363ab14ad940019bfbc7a0cb8cfa3b'
 #Token Owner : AVinstaBot.main
@@ -8,7 +9,7 @@ APP_ACCESS_TOKEN = '2170149923.5a5863d.94363ab14ad940019bfbc7a0cb8cfa3b'
 
 BASE_URL = 'https://api.instagram.com/v1/'
 
-
+a=[]
 '''
 Function declaration to get your own info
 '''
@@ -250,7 +251,27 @@ def delete_negative_comment(abhishekkumar11):
             print 'There are no existing comments on the post!'
     else:
         print 'Status code other than 200 received!'
+def get_the_comments(insta_username):
+    post_id = get_post_id(insta_username)
+    print "Get request URL:" + ((BASE_URL + "media/%s/comments?access_token=%s") % (post_id, APP_ACCESS_TOKEN))
+    comments = requests.get((BASE_URL + "media/%s/comments?access_token=%s") % (post_id, APP_ACCESS_TOKEN)).json()
+    for i, d in enumerate(comments["data"]):
+        print d["text"]
+        a.append(d["text"])
+    return a
 
+def sentimental_analysis():
+    insta_username= raw_input("Enter the username: \n")
+    give_comments= get_the_comments(insta_username)
+    for i in give_comments:
+        sentiments= sentiment(str(i))
+        print sentiments["sentiment"]
+        if (sentiments["sentiment"] > 0.75):
+            print "Positive sentiments"
+        elif (0.25 < sentiments["sentiment"] < 0.75):
+            print "Neutral Sentiments"
+        else:
+            print "Negative Sentiments"
 
 def start_bot():
     while True:
@@ -266,7 +287,7 @@ def start_bot():
         print "g.Get a list of comments on the recent post of a user\n"
         print "h.Make a comment on the recent post of a user\n"
         print "i.Delete negative comments from the recent post of a user\n"
-        print "j.Exit"
+        print "j.sentiments"
 
         choice = raw_input("Enter you choice: ")
         if choice == "a":
@@ -295,7 +316,7 @@ def start_bot():
            insta_username = raw_input("Enter the username of the user: ")
            delete_negative_comment(insta_username)
         elif choice == "j":
-            exit()
+            sentimental_analysis()
         else:
             print "wrong choice"
 
